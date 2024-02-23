@@ -1,0 +1,34 @@
+{{page-title "LoginPage"}}
+<div class="div1">
+  <h1 class="login heading">LOGIN FORM</h1>
+  <form {{on "submit" this.submitForm}} >
+    <label>
+    First Name:<input type="text" class="input1" style="color: black;" placeholder="" value={{this.model.firstName}} oninput={{action (mut this.model.firstName) value="target.value"}} />
+    </label><br><br>
+    <label>
+      Last Name: <input type="text" class="input2" placeholder="" value={{this.model.lastName}} oninput={{action (mut this.model.lastName) value="target.value"}} />
+    </label><br><br>
+    <label>
+      Email: <input type="text" class="input3" placeholder="" value={{this.model.email}} oninput={{action (mut this.model.email) value="target.value"}} />
+    </label><br><br>
+    <label>
+    Phone Number: <input type="text" class="input4" placeholder="" value={{this.model.phoneNumber}} oninput={{action (mut this.model.phoneNumber) value="target.value"}} />
+    </label><br><br>
+    <label>
+     Address:<input type="text" class="input5" placeholder="" value={{this.model.address}} oninput={{action (mut this.model.address) value="target.value"}} />
+    </label><br><br>
+
+    <button type="submit" class="submit button">Submit</button>
+  </form>
+  </div>
+  <div class="div2">
+   {{#if this.model.address}}
+    <h1 class="entered login">ENTERED DATA</h1>
+    <p>First Name:{{this.model.firstName}}</p>
+    <p>Last Name: {{this.model.lastName}}</p>
+    <p>Email: {{this.model.email}}</p>
+    <p>Phone Number: {{this.model.phoneNumber}}</p>
+    <p>Address: {{this.model.address}}</p>
+  {{/if}}
+  </div>
+{{outlet}}
